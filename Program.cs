@@ -31,4 +31,3 @@ namespace HairSalon
   }
 }
 
-//researching
