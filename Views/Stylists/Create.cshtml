@@ -1,0 +1,17 @@
+@{
+    Layout = "_Layout";
+}
+
+<h1>Add a new Stylist</h1>
+
+<form asp-controller="Stylists" asp-action="Create" method="post">
+    <label for="StylistName">Stylist Name</label>
+    <input id="StylistName" name="StylistName" type="text">
+    <label for="StylistDescription">Stylist Description</label>
+    <input id="StylistDescription" name="StylistDescription" type="text">
+    <label for="StylistPay">Stylist Pay</label>
+    <input id="StylistPay" name="StylistPay" type="number">
+    <label for="StylistAge">Stylist Age</label>
+    <input id="StylistAge" name="StylistAge" type="number">
+    <button type='submit'>Add Stylist</button>
+</form>

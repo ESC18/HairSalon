@@ -1,0 +1,19 @@
+@{
+    Layout = "_Layout";
+}
+
+<h1>List of Stylists</h1>
+
+<ul>
+    @foreach (var stylist in Model)
+    {
+        <li>
+            Stylist Name: @stylist.StylistName <br />
+            Order Description: @stylist.Description <br />
+            <a href="/Stylists/@stylist.StylistId/Details">View Additional Details</a>
+        </li>
+    }
+</ul>
+<a href="/Stylists/Create">Add a new Stylist</a>
+<br>
+<a href="/">Stylist List</a>
