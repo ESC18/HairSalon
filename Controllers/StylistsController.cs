@@ -11,10 +11,10 @@ namespace HairSalon.Controllers
             return View();
         }
 
-        [HttpGet("/Stylists/{StylistId}/Details")]
-        public ActionResult Details()
-        {
-            return View();
-        }
+        // [HttpGet("/Stylists/{StylistId}/Details")]
+        // public ActionResult Details()
+        // {
+        //     return View();
+        // }
     }
 }

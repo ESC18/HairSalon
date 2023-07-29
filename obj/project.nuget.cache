@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "og+4mOG8jvTespSqr+Wi8KdOQUcVLmfGEqwrbzeUHijPYzAUv90NfHziBZc9i8gFPmF4ekYcV2202uAWN9lm0g==",
-  "success": false,
+  "dgSpecHash": "oHgRN4xod25Am/FRiEbROIpvo3rdfBhVo6/VvVxrK8O3N2vgpudepNQMLb7/1WN4vj4eKe0ThXXGsln/qSbzWQ==",
+  "success": true,
   "projectFilePath": "C:\\Users\\SC\\Downloads\\HairSalon\\HairSalon.Solution\\HairSalon\\HairSalon.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\SC\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
@@ -42,7 +42,7 @@
     "C:\\Users\\SC\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\SC\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\SC\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
-    "C:\\Users\\SC\\.nuget\\packages\\mysqlconnector\\2.2.0\\mysqlconnector.2.2.0.nupkg.sha512",
+    "C:\\Users\\SC\\.nuget\\packages\\mysqlconnector\\2.2.7\\mysqlconnector.2.2.7.nupkg.sha512",
     "C:\\Users\\SC\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "C:\\Users\\SC\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\SC\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
@@ -75,15 +75,5 @@
     "C:\\Users\\SC\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
     "C:\\Users\\SC\\.nuget\\packages\\system.windows.extensions\\5.0.0\\system.windows.extensions.5.0.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1605",
-      "level": "Error",
-      "message": "Detected package downgrade: MySqlConnector from 2.2.5 to 2.2.0. Reference the package directly from the project to select a different version. \r\n HairSalon -> Pomelo.EntityFrameworkCore.MySql 7.0.0 -> MySqlConnector (>= 2.2.5) \r\n HairSalon -> MySqlConnector (>= 2.2.0)",
-      "libraryId": "MySqlConnector",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

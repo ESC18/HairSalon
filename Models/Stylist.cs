@@ -1,4 +1,7 @@
 using System.ComponentModel.DataAnnotations;
+using HairSalon.Models;
+using System.Collections.Generic;
+
 
 namespace HairSalon.Models
 {

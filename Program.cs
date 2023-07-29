@@ -1,33 +1,39 @@
 using Microsoft.AspNetCore.Builder;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using ToDoList.Models;
+using HairSalon.Data;
 
 namespace HairSalon
 {
-  class Program
-  {
-    static void Main(string[] args)
+    class Program
     {
-      WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+        static void Main(string[] args)
+        {
 
-      builder.Services.AddControllersWithViews();
+            WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-      DBConfiguration.ConnectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
+            builder.Services.AddControllersWithViews();
 
-      WebApplication app = builder.Build();
+            builder.Services.AddDbContext<SalonContext>(
+                              dbContextOptions => dbContextOptions
+                                .UseMySql(
+                                  builder.Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(builder.Configuration["ConnectionStrings:DefaultConnection"]
+                                )
+                              )
+                            );
 
-      app.UseHttpsRedirection();
-      app.UseStaticFiles();
+            WebApplication app = builder.Build();
 
-      app.UseRouting();
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
 
-      app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Stylists}/{action=Index}/{id?}"
-      );
+            app.UseRouting();
 
-      app.Run();
+            app.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Home}/{action=Index}/{id?}");
+
+            app.Run();
+        }
     }
-  }
 }
-
