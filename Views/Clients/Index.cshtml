@@ -1,0 +1,12 @@
+@model List<HairSalon.Models.Client>
+
+<h1>List of Clients</h1>
+
+<ul>
+    @foreach (var client in Model)
+    {
+        <li>@client.Name</li>
+    }
+</ul>
+
+@Html.ActionLink("Add New Client", "Create")

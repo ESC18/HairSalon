@@ -1,14 +1,32 @@
+@model HairSalon.Models.Client
+
 @{
-  Layout = "_Layout";
+    Layout = "_Layout";
 }
 
-@model HairSalon.Models.Stylist
+<h2>Add Client</h2>
+<form asp-controller="Clients" asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="Name">Name:</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Phone">Phone:</label>
+        <input asp-for="Phone" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email">Email:</label>
+        <input asp-for="Email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="StylistId">Stylist:</label>
+        <select asp-for="StylistId" asp-items="@Model.StylistSelectList" class="form-control">
+            <option value="">-- Select a Stylist --</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
 
-<h4>Add a new task</h4>
-@using (Html.BeginForm())
-{
-  @Html.LabelFor(model => model.Description)
-  @Html.TextBoxFor(model => model.Description)
-  <input type="submit" value="Add new Stylist" />
-}
-<p>@Html.ActionLink("Show all Stylists", "Index")</p>
+<p>
+    <a href="@Url.Action("Details", "Stylists", new { id = Model.StylistId })" class="btn btn-secondary">Back to Stylist Details</a>
+</p>

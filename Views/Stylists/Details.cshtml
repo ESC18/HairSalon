@@ -1,12 +1,47 @@
-@* @{
-  Layout = "_Layout";
-}
-
 @model HairSalon.Models.Stylist
 
-<h2>Item Details</h2>
-<hr />
-<h3>@Html.DisplayNameFor(model => model.Description): @Html.DisplayFor(model => model.Description)<h3>
-<p>@Html.ActionLink("Edit Item", "Edit", new { id = Model.ItemId })</p>
-<p>@Html.ActionLink("Delete Item", "Delete", new { id = Model.ItemId })</p>
-<p>@Html.ActionLink("Back to list", "Index")</p> *@
+@{
+    Layout = "_Layout";
+}
+
+<h2>Stylist Details</h2>
+<p>
+    <strong>Name:</strong> @Model.Name<br />
+    <strong>Specialty:</strong> @Model.Specialty
+</p>
+
+<p>
+    <a href="@Url.Action("Create", "Clients", new { stylistId = Model.Id })" class="btn btn-primary">Add Client</a>
+</p>
+
+@if (Model.Clients.Any())
+{
+    <h3>Clients</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var client in Model.Clients)
+            {
+                <tr>
+                    <td>@client.Name</td>
+                    <td>@client.Phone</td>
+                    <td>@client.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No clients present.</p>
+}
+
+<p>
+    <a href="@Url.Action("Index", "Stylists")" class="btn btn-secondary">Back to List</a>
+</p>

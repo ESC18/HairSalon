@@ -78,3 +78,4 @@ C:\Users\SC\Downloads\HairSalon\HairSalon.Solution\HairSalon\obj\Debug\net6.0\re
 C:\Users\SC\Downloads\HairSalon\HairSalon.Solution\HairSalon\obj\Debug\net6.0\HairSalon.pdb
 C:\Users\SC\Downloads\HairSalon\HairSalon.Solution\HairSalon\obj\Debug\net6.0\HairSalon.genruntimeconfig.cache
 C:\Users\SC\Downloads\HairSalon\HairSalon.Solution\HairSalon\obj\Debug\net6.0\ref\HairSalon.dll
+C:\Users\SC\Downloads\HairSalon\HairSalon.Solution\HairSalon\bin\Debug\net6.0\package-lock.json

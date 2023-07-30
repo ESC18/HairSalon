@@ -1,0 +1,10 @@
+@model HairSalon.Models.Client
+
+<h1>Client Details</h1>
+
+<div>
+    <h3>@Model.Name</h3>
+    <p>Stylist: @Model.Stylist.Name</p>
+</div>
+
+@Html.ActionLink("Back to List", "Index")
