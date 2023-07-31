@@ -14,14 +14,11 @@ namespace HairSalon.Controllers
             _db = db;
         }
 
-        // GET: Clients
         public ActionResult Index()
         {
             var model = _db.Clients.ToList();
             return View(model);
         }
-
-        // GET: Clients/Create
         public ActionResult Create(int? stylistId)
         {
             if (stylistId.HasValue)
@@ -43,7 +40,6 @@ namespace HairSalon.Controllers
             return View();
         }
 
-        // POST: Clients/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Client client)
@@ -55,14 +51,12 @@ namespace HairSalon.Controllers
                 return RedirectToAction("Index");
             }
 
-            // If the model is not valid, regenerate the SelectList and return the view with validation errors
             var stylistSelectList = new SelectList(_db.Stylists, "Id", "Name");
             ViewBag.StylistSelectList = stylistSelectList;
 
             return View(client);
         }
 
-        // GET: Clients/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)

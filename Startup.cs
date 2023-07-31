@@ -48,9 +48,6 @@ namespace HairSalon
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-
-            // NOTE: Database seeding has been removed, so the following line is not needed.
-            // DbInitializer.Initialize(app.ApplicationServices.GetRequiredService<SalonContext>());
         }
     }
 }
