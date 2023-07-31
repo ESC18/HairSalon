@@ -1,0 +1,19 @@
+@model HairSalon.Models.Client
+
+<h2>Delete Client</h2>
+
+<div>
+    <h3>@Model.Name</h3>
+    <p>Stylist: @Model.Stylist.Name</p>
+    <!-- Add other client details here as needed -->
+</div>
+
+<form asp-action="DeleteConfirmed" method="post">
+    @Html.AntiForgeryToken()
+
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a href="@Url.Action("Details", new { id = Model.Id })" class="btn btn-secondary">Cancel</a>
+    </div>
+</form>

@@ -1,9 +1,5 @@
 @model HairSalon.Models.Stylist
 
-@{
-    Layout = "_Layout";
-}
-
 <h2>Stylist Details</h2>
 <p>
     <strong>Name:</strong> @Model.Name<br />
@@ -11,31 +7,22 @@
 </p>
 
 <p>
+    <a href="@Url.Action("Edit", new { id = Model.Id })" class="btn btn-primary">Edit</a>
+    <a href="@Url.Action("Delete", new { id = Model.Id })" class="btn btn-danger">Delete</a>
     <a href="@Url.Action("Create", "Clients", new { stylistId = Model.Id })" class="btn btn-primary">Add Client</a>
 </p>
 
-@if (Model.Clients.Any())
+@if (Model.Clients != null && Model.Clients.Count > 0)
 {
     <h3>Clients</h3>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var client in Model.Clients)
-            {
-                <tr>
-                    <td>@client.Name</td>
-                    <td>@client.Phone</td>
-                    <td>@client.Email</td>
-                </tr>
-            }
-        </tbody>
-    </table>
+    <ul>
+        @foreach (var client in Model.Clients)
+        {
+            <li>
+                @client.Name - @client.Phone - @client.Email
+            </li>
+        }
+    </ul>
 }
 else
 {
@@ -43,5 +30,5 @@ else
 }
 
 <p>
-    <a href="@Url.Action("Index", "Stylists")" class="btn btn-secondary">Back to List</a>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
 </p>

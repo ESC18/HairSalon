@@ -1,39 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using HairSalon.Models;
 
 namespace HairSalon.Controllers
 {
     public class StylistsController : Controller
     {
-        private readonly SalonContext _context;
+        private readonly SalonContext _db;
 
-        public StylistsController(SalonContext context)
+        public StylistsController(SalonContext db)
         {
-            _context = context;
+            _db = db;
         }
 
-        // GET: Stylists
-        public async Task<ActionResult> Index()
+        public IActionResult Index()
         {
-            var stylists = await _context.Stylists.ToListAsync();
-            return View(stylists);
+            var model = _db.Stylists.ToList();
+            return View(model);
         }
 
-        // GET: Stylists/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public IActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var stylist = await _context.Stylists
-                .Include(s => s.Clients)
-                .FirstOrDefaultAsync(m => m.Id == id);
-
+            var stylist = _db.Stylists.Include(s => s.Clients).FirstOrDefault(s => s.Id == id);
             if (stylist == null)
             {
                 return NotFound();
@@ -42,25 +31,70 @@ namespace HairSalon.Controllers
             return View(stylist);
         }
 
-        // GET: Stylists/Create
-        public ActionResult Create()
+        public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Stylists/Create
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind("Id,Name,Specialty")] Stylist stylist)
+        public IActionResult Create(Stylist stylist)
         {
             if (ModelState.IsValid)
             {
-                _context.Stylists.Add(stylist);
-                _context.SaveChanges();
-                return RedirectToAction(nameof(Index));
+                _db.Stylists.Add(stylist);
+                _db.SaveChanges();
+                return RedirectToAction("Index");
             }
+
             return View(stylist);
         }
 
+        public IActionResult Edit(int id)
+        {
+            var stylist = _db.Stylists.Find(id);
+            if (stylist == null)
+            {
+                return NotFound();
+            }
+
+            return View(stylist);
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Stylist stylist)
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Entry(stylist).State = EntityState.Modified;
+                _db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(stylist);
+        }
+
+        public IActionResult Delete(int id)
+        {
+            var stylist = _db.Stylists.Find(id);
+            if (stylist == null)
+            {
+                return NotFound();
+            }
+
+            return View(stylist);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            var stylist = _db.Stylists.Find(id);
+            if (stylist != null)
+            {
+                _db.Stylists.Remove(stylist);
+                _db.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }

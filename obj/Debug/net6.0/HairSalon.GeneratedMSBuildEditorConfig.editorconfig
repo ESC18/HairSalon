@@ -19,8 +19,16 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/SC/Downloads/HairSalon/HairSalon.Solution/HairSalon/Views/Clients/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/SC/Downloads/HairSalon/HairSalon.Solution/HairSalon/Views/Clients/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SC/Downloads/HairSalon/HairSalon.Solution/HairSalon/Views/Clients/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/SC/Downloads/HairSalon/HairSalon.Solution/HairSalon/Views/Clients/Index.cshtml]
@@ -35,8 +43,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R5bGlzdHNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/SC/Downloads/HairSalon/HairSalon.Solution/HairSalon/Views/Stylists/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R5bGlzdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/SC/Downloads/HairSalon/HairSalon.Solution/HairSalon/Views/Stylists/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R5bGlzdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/SC/Downloads/HairSalon/HairSalon.Solution/HairSalon/Views/Stylists/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3R5bGlzdHNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/SC/Downloads/HairSalon/HairSalon.Solution/HairSalon/Views/Stylists/Index.cshtml]

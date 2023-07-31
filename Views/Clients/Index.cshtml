@@ -1,12 +1,18 @@
 @model List<HairSalon.Models.Client>
 
-<h1>List of Clients</h1>
+<h2>List of Clients</h2>
 
 <ul>
     @foreach (var client in Model)
     {
-        <li>@client.Name</li>
+        <li>
+            @client.Name - @client.Phone - @client.Email
+            <a href="@Url.Action("Details", new { id = client.Id })" class="btn btn-primary">Details</a>
+        </li>
     }
 </ul>
 
-@Html.ActionLink("Add New Client", "Create")
+<p>
+    <a href="@Url.Action("Create", "Clients")" class="btn btn-primary">Add New Client</a>
+    <a href="@Url.Action("Index", "Stylists")" class="btn btn-secondary">Back to Stylist List</a>
+</p>
