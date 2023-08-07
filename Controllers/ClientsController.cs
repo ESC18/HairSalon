@@ -24,52 +24,37 @@ namespace HairSalon.Controllers
             if (stylistId.HasValue)
             {
                 var stylist = _db.Stylists.Find(stylistId);
-                if (stylist == null)
-                {
-                    return NotFound();
-                }
+
 
                 ViewBag.StylistId = stylist.Id;
-            }
-            else
-            {
-                var stylistSelectList = new SelectList(_db.Stylists, "Id", "Name");
-                ViewBag.StylistSelectList = stylistSelectList;
-            }
-
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(Client client)
-        {
-            if (ModelState.IsValid)
-            {
-                _db.Clients.Add(client);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
             }
 
             var stylistSelectList = new SelectList(_db.Stylists, "Id", "Name");
             ViewBag.StylistSelectList = stylistSelectList;
 
-            return View(client);
+            return View();
+        }
+
+
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(Client client)
+        {
+
+            _db.Clients.Add(client);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
         public ActionResult Details(int? id)
         {
-            if (id == null)
-            {
-                return BadRequest();
-            }
+
 
             var client = _db.Clients.FirstOrDefault(c => c.Id == id);
 
-            if (client == null)
-            {
-                return NotFound();
-            }
 
             return View(client);
         }

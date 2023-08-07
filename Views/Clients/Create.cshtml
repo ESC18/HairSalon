@@ -1,27 +1,52 @@
 @model HairSalon.Models.Client
 
-<h2>Add New Client</h2>
+<h2>Create Client</h2>
 
-<form asp-action="Create" method="post">
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
 
+    @if (ViewBag.StylistId != null)
+    {
+        @Html.HiddenFor(model => model.StylistId, new { value = ViewBag.StylistId })
+    }
+
     <div class="form-group">
-        <label asp-for="Name">Name:</label>
-        <input asp-for="Name" class="form-control" required />
-        <span asp-validation-for="Name" class="text-danger"></span>
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
     </div>
+
     <div class="form-group">
-        <label asp-for="Phone">Phone:</label>
-        <input asp-for="Phone" class="form-control" required />
-        <span asp-validation-for="Phone" class="text-danger"></span>
+        @if (ViewBag.StylistId == null)
+        {
+            @Html.LabelFor(model => model.StylistId)
+            @Html.DropDownList("StylistId", (SelectList)ViewBag.StylistSelectList, "Select a Stylist", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.StylistId, "", new { @class = "text-danger" })
+        }
     </div>
+
     <div class="form-group">
-        <label asp-for="Email">Email:</label>
-        <input asp-for="Email" class="form-control" required />
-        <span asp-validation-for="Email" class="text-danger"></span>
+        @Html.LabelFor(model => model.Phone)
+        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
     </div>
+
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Save</button>
-        <a href="@Url.Action("Index")" class="btn btn-secondary">Back to List</a>
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
     </div>
-</form>
+
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-primary" />
+        @if (ViewBag.StylistId != null)
+        {
+            @Html.ActionLink("Cancel", "Index", "Stylists", new { id = ViewBag.StylistId }, new { @class = "btn btn-secondary" })
+        }
+        else
+        {
+            @Html.ActionLink("Cancel", "Index", "Clients", new { }, new { @class = "btn btn-secondary" })
+        }
+    </div>
+}

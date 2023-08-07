@@ -23,10 +23,7 @@ namespace HairSalon.Controllers
         public IActionResult Details(int id)
         {
             var stylist = _db.Stylists.Include(s => s.Clients).FirstOrDefault(s => s.Id == id);
-            if (stylist == null)
-            {
-                return NotFound();
-            }
+
 
             return View(stylist);
         }
@@ -39,47 +36,31 @@ namespace HairSalon.Controllers
         [HttpPost]
         public IActionResult Create(Stylist stylist)
         {
-            if (ModelState.IsValid)
-            {
-                _db.Stylists.Add(stylist);
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
 
-            return View(stylist);
+            _db.Stylists.Add(stylist);
+            _db.SaveChanges();
+            return RedirectToAction("Index");
+
         }
 
         public IActionResult Edit(int id)
         {
             var stylist = _db.Stylists.Find(id);
-            if (stylist == null)
-            {
-                return NotFound();
-            }
-
             return View(stylist);
         }
 
         [HttpPost]
         public IActionResult Edit(Stylist stylist)
         {
-            if (ModelState.IsValid)
-            {
-                _db.Entry(stylist).State = EntityState.Modified;
-                _db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            _db.Entry(stylist).State = EntityState.Modified;
+            _db.SaveChanges();
+            return RedirectToAction("Index");
 
-            return View(stylist);
         }
 
         public IActionResult Delete(int id)
         {
             var stylist = _db.Stylists.Find(id);
-            if (stylist == null)
-            {
-                return NotFound();
-            }
 
             return View(stylist);
         }
@@ -88,11 +69,10 @@ namespace HairSalon.Controllers
         public IActionResult DeleteConfirmed(int id)
         {
             var stylist = _db.Stylists.Find(id);
-            if (stylist != null)
-            {
-                _db.Stylists.Remove(stylist);
-                _db.SaveChanges();
-            }
+
+            _db.Stylists.Remove(stylist);
+            _db.SaveChanges();
+
 
             return RedirectToAction("Index");
         }
